@@ -2,8 +2,8 @@ const holes = document.querySelectorAll('.hole');
 const moles = document.querySelectorAll('.mole');
 const startButton = document.querySelector('#start');
 // TODO: Add the missing query selectors:
-const score = document.querySelector(#score); // Use querySelector() to get the score element
-const timerDisplay = document.querySelector(#timer); // use querySelector() to get the timer element.
+const score = document.querySelector("#score"); // Use querySelector() to get the score element
+const timerDisplay = document.querySelector('#timer'); // use querySelector() to get the timer element.
 
 let time = 0;
 let timer;
@@ -42,14 +42,14 @@ function randomInteger(min, max) {
 function setDelay(difficulty) {
   // TODO: Write your code here.
   let delay = 0
-  if (difficulty === easy) {
+  if (difficulty === "easy") {
     delay = 1500
   } 
-  if (difficulty === normal) {
+  if (difficulty === "normal") {
     delay = 1000
   }
-  if (difficulty === hard) {
-    let delay = randomInteger(600, 1200);
+  if (difficulty === "hard") {
+     delay = randomInteger(600, 1200);
   }
   return delay;
 }
@@ -154,7 +154,7 @@ function showAndHide(hole, delay){
 */
 function toggleVisibility(hole){
   // TODO: add hole.classList.toggle so that it adds or removes the 'show' class.
-  hole.classList.toggle(show);
+  hole.classList.toggle('show');
   return hole;
 }
 
@@ -170,7 +170,8 @@ function toggleVisibility(hole){
 */
 function updateScore() {
   // TODO: Write your code here
-
+  points += 1
+  score.textContent = points
   return points;
 }
 
@@ -183,8 +184,8 @@ function updateScore() {
 */
 function clearScore() {
   // TODO: Write your code here
-  // points = 0;
-  // score.textContent = points;
+  points = 0;
+  score.textContent = points;
   return points;
 }
 
@@ -223,6 +224,7 @@ function startTimer() {
 function whack(event) {
   // TODO: Write your code here.
   // call updateScore()
+  points = updateScore();
   return points;
 }
 

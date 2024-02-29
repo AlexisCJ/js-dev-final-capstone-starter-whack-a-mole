@@ -40,6 +40,15 @@ p {
   padding: 10px;
 }
 
+.scoreAndTimer {
+  display: flex;
+  justify-content: center;
+}
+
+#scoreAndTimer {
+    margin-left: 50px;
+}
+
 #start {
     text-align: center;
     font-size: 30px;

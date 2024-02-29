@@ -9,7 +9,13 @@ let time = 0;
 let timer;
 let lastHole = 0;
 let points = 0;
-let difficulty = "hard";
+let difficulty = "";
+
+//eventListeners for difficulty
+document.querySelector('#easy').addEventListener("click", () => diffOption("easy"));
+document.querySelector('#medium').addEventListener("click", () => diffOption("normal"));
+document.querySelector('#hard').addEventListener("click", () => diffOption("hard"));
+
 
 /**
  * Generates a random integer within a range.
@@ -41,19 +47,21 @@ function randomInteger(min, max) {
  */
 function setDelay(difficulty) {
   // TODO: Write your code here.
-  let delay = 0
   if (difficulty === "easy") {
-    delay = 1500
-  } 
-  if (difficulty === "normal") {
-    delay = 1000
+    return 1500;
+  } else if (difficulty === "normal") {
+    return 1000;
+  } else if (difficulty === "hard") {
+    return randomInteger(600, 1200);
+  } else {
+    console.error("Invalid difficulty");
+    return 1000; // Default is normal
   }
-  if (difficulty === "hard") {
-     delay = randomInteger(600, 1200);
-  }
-  return delay;
 }
 
+function diffOption(newDiff) {
+  difficulty = newDiff
+}
 /**
  * Chooses a random hole from a list of holes.
  *
